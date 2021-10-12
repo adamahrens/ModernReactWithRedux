@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import SeasonDisplay from "./SeasonDisplay";
+import Divider from "./Divider";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App ui text container">
+
+      <div className="row">
+        <div className="column">
+          <SeasonDisplay />
+        </div>
+      </div>
+
+      <Divider text="Hello" />
+
+      <div className="row">
+        <div className="column">
+          <SeasonDisplay />
+        </div>
+      </div>
+
+      <Divider text="World" />
+
+      <div className="row">
+        <div className="column">
+          <SeasonDisplay />
+        </div>
+      </div>
+
     </div>
   );
 }

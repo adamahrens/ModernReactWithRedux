@@ -58,3 +58,7 @@ Use `props.children` to fetch all the children that are within the component. Us
 ## Structuring Apps with Class Based Components.
 
 Now Class Components can respond to life cycle methods and Functional components use the hooks system to do similar things
+
+## State in React Components
+
+props are passed into components. state is internal to a component. State is represented as a javascript `Object` that contains data relevant to the component. Updating state in a comoponent causes the component to re-render. State can only be updated call `setState`. The only time you assign to state directly is in the `constructor`
