@@ -1,5 +1,6 @@
 import SeasonDisplay from "./SeasonDisplay";
 import Divider from "./Divider";
+import Spinner from "./Spinner";
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
 
       <div className="row">
         <div className="column">
-          <SeasonDisplay />
+          <SeasonDisplay title="Season" />
         </div>
       </div>
 
@@ -15,7 +16,7 @@ function App() {
 
       <div className="row">
         <div className="column">
-          <SeasonDisplay />
+          <SeasonDisplay title="Seas0n" />
         </div>
       </div>
 
@@ -23,9 +24,15 @@ function App() {
 
       <div className="row">
         <div className="column">
-          <SeasonDisplay />
+          <SeasonDisplay title="SeaSUN" />
         </div>
       </div>
+
+      {/* <div className="row">
+        <div className="column">
+          <Spinner message="Just a spinner" />
+        </div>
+      </div> */}
 
     </div>
   );

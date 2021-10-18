@@ -62,3 +62,19 @@ Now Class Components can respond to life cycle methods and Functional components
 ## State in React Components
 
 props are passed into components. state is internal to a component. State is represented as a javascript `Object` that contains data relevant to the component. Updating state in a comoponent causes the component to re-render. State can only be updated call `setState`. The only time you assign to state directly is in the `constructor`
+
+## Lifecycle Methods
+
+Methods called during events in a Components lifecycle `constructor` -> `render` -> `componentDidMount` -> `componentWillUnmount` only render is required. Others are considered optional.
+
+Data loading is great to occur in `componentDidMOunt` or `componentDidUpdate`. Use `componentWillUnmount` for data cleanup. Use `constrcutor` to set the initial `state` of the component.
+
+Try avoiding multiple `return` statements in the render method. Instead break out conditional logic into a helper `function`
+
+## Handling Forms and Events
+
+Calling an outside API to fetch car images. Important props to pass callback functions to are `onClick`, `onChange`, and `onSubmit`. Can define a function or arrowFunction when passing event handlers to props on forms.
+
+`Uncontrolled` element is one that isn't driven by any state. `Controlled` is one that is setting state on updates and dispalying current value of the state in the input. So be sure to set `value` and `onChange` props to make it controlled. `Uncontrolled` means that the actual html is the only thing that knows the true value of it's input. We want it to be in the React side. React should drive all our data not the DOM driving data.
+
+`Controlled` is preferred because it allows us to do manipulation on the input/output data.
