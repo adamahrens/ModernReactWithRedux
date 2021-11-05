@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 
-const Searchbar = () => {
-
-    const [search, setSearchTerm] = useState("");
+const Searchbar = (props) => {
 
     const searchSubmited = (event) => {
         event.preventDefault();
-        console.log("Search submitted")
+        props.onSearchSubmit()
     };
 
     const searchUpdated = (event) => {
+        event.preventDefault();
         console.log(`Search updated! ${event.target.value}`)
-        setSearchTerm(event.target.value)
+        props.setSearchTerm(event.target.value)
     };
 
     return (
@@ -22,7 +21,7 @@ const Searchbar = () => {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control type="text" placeholder="Search"
                         onChange={searchUpdated}
-                        value={search}
+                        value={props.search}
                         onClick={() => { console.log("clicked!") }} />
                 </Form.Group>
                 <Button variant="primary" type="submit">

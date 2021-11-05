@@ -77,4 +77,4 @@ Calling an outside API to fetch car images. Important props to pass callback fun
 
 `Uncontrolled` element is one that isn't driven by any state. `Controlled` is one that is setting state on updates and dispalying current value of the state in the input. So be sure to set `value` and `onChange` props to make it controlled. `Uncontrolled` means that the actual html is the only thing that knows the true value of it's input. We want it to be in the React side. React should drive all our data not the DOM driving data.
 
-`Controlled` is preferred because it allows us to do manipulation on the input/output data.
+`Controlled` is preferred because it allows us to do manipulation on the input/output data. When calling `bind` it makes a new function of the one it's calling `bind` for. That way `this` will point to the instance of our specific object.
