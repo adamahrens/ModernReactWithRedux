@@ -23,7 +23,7 @@ class ImageList extends Component {
                 <h5>Found {this.props.results.length}</h5>
 
                 {this.props.results.map(item => {
-                    return <Card style={{ width: '18rem' }}>
+                    return <Card key={item.id} style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={item.urls.small} />
                         <Card.Body>
                             <Card.Title>Likes {item.likes}</Card.Title>
