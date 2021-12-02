@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Container, Row, Col} from 'react-bootstrap'
+import ImageCard from "./ImageCard";
 
 class ImageList extends Component {
 
@@ -21,20 +23,13 @@ class ImageList extends Component {
             <div>
                 <h3 onClick={this.onClick}>{this.props.header}</h3>
                 <h5>Found {this.props.results.length}</h5>
-
+                <Container>
+                <Row>
                 {this.props.results.map(item => {
-                    return <Card key={item.id} style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={item.urls.small} />
-                        <Card.Body>
-                            <Card.Title>Likes {item.likes}</Card.Title>
-                            <Card.Text>
-                                {item.alt_description}
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-
+                    return <Col><ImageCard item={item} /> </Col>
                 })}
+                </Row>
+                </Container>
             </div>
         )
     }
