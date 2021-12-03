@@ -1,10 +1,19 @@
 import React from "react";
+import { Container } from 'react-bootstrap'
 
-const VideoDetail = () => {
+const VideoDetail = ({ video }) => {
     return (
-        <div>
-            <h1>VideoDetail</h1>
-        </div>
+        <Container>
+            {video.videoId !== null && (
+                <div>
+                    <h1>VideoDetails</h1>
+                    <iframe style={{ width: '500px', height: '300px' }} title={video.videoId} src={`https://www.youtube.com/embed/${video.videoId}`} />
+                    <h3>{video.title}</h3>
+                    <p>{video.description}</p>
+                    <div><span>{video.videoId}</span></div>
+                </div>
+            )}
+        </Container>
     )
 }
 

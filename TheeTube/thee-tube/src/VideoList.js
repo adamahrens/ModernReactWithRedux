@@ -1,13 +1,17 @@
 import React from "react";
+import { Container, Row } from 'react-bootstrap'
 import VideoItem from "./VideoItem";
 
-const VideoList = () => {
+const VideoList = ({ items, onSelect }) => {
     return (
-        <div>
+        <Container >
             <h1>VideoList</h1>
-            <VideoItem />
-            <VideoItem />
-        </div>
+            <Row>
+                {items.map(item =>
+                    <VideoItem key={item.videoId} item={item} onSelect={onSelect} />
+                )}
+            </Row>
+        </Container>
     )
 }
 
