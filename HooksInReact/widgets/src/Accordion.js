@@ -5,17 +5,18 @@ const AccordionView = ({ items }) => {
     const [activeIndex, setActiveIndex] = useState(0)
 
     const modifiedItems = items.map((item, index) => {
+        const isActive = activeIndex === index
         return (
             <React.Fragment key={item.title}>
                 <Accordion.Title
-                    active={activeIndex === index}
+                    active={isActive}
                     index={index}
                     onClick={() => { setActiveIndex(index) }}
                 >
                     <Icon name='dropdown' />
                     {item.title}
                 </Accordion.Title>
-                <Accordion.Content active={activeIndex === index}>
+                <Accordion.Content active={isActive}>
                     <p>{item.content}</p>
                 </Accordion.Content>
                 <div className='ui divider' />
