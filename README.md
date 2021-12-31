@@ -86,3 +86,9 @@ Hooks give functional components additional functionality. Hooks give us functio
 Examples of primitive hooks that you get out the box are `useState`, `useEffect`, `useMemo`, `useCallback`. They are all included with React to give more functionality to functional components.
 
 We can use these "primitive" hooks to build our own custom hooks.
+
+|              | Class     | Function |
+|--------------|-----------|------------|
+| Init         | `state = {activeIndex: 0}`       |`useState(0)`       |
+| Reference    | `this.state.activeIndex`         | `activeIndex`       |
+| Updating     | `this.setState({activeIndex: 1})`| `setActiveIndex(1)`       |
