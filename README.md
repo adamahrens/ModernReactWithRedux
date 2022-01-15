@@ -92,3 +92,5 @@ We can use these "primitive" hooks to build our own custom hooks.
 | Init         | `state = {activeIndex: 0}`       |`useState(0)`       |
 | Reference    | `this.state.activeIndex`         | `activeIndex`       |
 | Updating     | `this.setState({activeIndex: 1})`| `setActiveIndex(1)`       |
+
+`useEffect` can supply an optional argument to determine when it's run. `useEffect` is away to provide lifecycle type methods inside a functional component. If you leave the second argument off it'll run on first render and every rerender. If you have an `[]` empty array. It'll only run once for the initial render. If you provide a list of values in the array it'll run when those values change.

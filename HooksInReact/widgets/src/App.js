@@ -1,5 +1,5 @@
 import AccordionView from './Accordion'
-import Search from './Search'
+import SearchWidget from './Search'
 import { Container } from 'semantic-ui-react'
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
     <Container>
       <h1>Hello ReactHooks Widgets</h1>
       <AccordionView items={items} />
-      <Search />
+      <SearchWidget />
     </Container>
   );
 }
