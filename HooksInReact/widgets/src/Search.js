@@ -25,8 +25,6 @@ const SearchWidget = () => {
         // Execute network request
         const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srsearch=${value}`
 
-        // Clear previous timeout
-
         // Throttle requets
         const timerId = setTimeout(() => {
             fetch(url)
@@ -45,7 +43,6 @@ const SearchWidget = () => {
         }, 500)
 
         return () => {
-            console.log('Clearing previous timeout')
             clearTimeout(timerId)
         }
 
