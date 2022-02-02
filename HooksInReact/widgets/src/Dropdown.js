@@ -6,7 +6,7 @@ const DropdownWidget = (props) => {
     return (
         <Container>
             <Dropdown
-                placeholder='Select a Theme'
+                placeholder={props.placeholder}
                 selection
                 options={props.options}
                 value={props.option.value}

@@ -94,3 +94,7 @@ We can use these "primitive" hooks to build our own custom hooks.
 | Updating     | `this.setState({activeIndex: 1})`| `setActiveIndex(1)`       |
 
 `useEffect` can supply an optional argument to determine when it's run. `useEffect` is away to provide lifecycle type methods inside a functional component. If you leave the second argument off it'll run on first render and every rerender. If you have an `[]` empty array. It'll only run once for the initial render. If you provide a list of values in the array it'll run when those values change.
+
+Events and Clicks can only be triggered or listened to by elements that a Component can create. What if you wanted to hear clicks from an element that another component has not created. For example a `Dropdown` component wants to listen to a click on the `body` tag.
+
+Event bubbling is when the Browser creates an event (say for a click on an item). It then keeps bubbling up to parent elements. If that parent has an event handler it can be executed. 

@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import AccordionView from './Accordion'
 import SearchWidget from './Search'
 import DropdownWidget from './Dropdown'
+import Translate from './Translate'
 import { Container, Divider } from 'semantic-ui-react'
+
 function App() {
 
   const items = [
@@ -33,9 +35,11 @@ function App() {
       <AccordionView items={items} />
       <SearchWidget />
       <Divider />
-      <DropdownWidget option={option} onOptionChanged={setOption} options={options} />
+      <DropdownWidget option={option} onOptionChanged={setOption} options={options} placeholder="Select Color" />
       <Divider />
-      <DropdownWidget option={movie} onOptionChanged={setMovie} options={movies} />
+      <DropdownWidget option={movie} onOptionChanged={setMovie} options={movies} placeholder="Select Movie" />
+      <Divider />
+      <Translate />
     </Container>
   );
 }
