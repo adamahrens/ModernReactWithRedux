@@ -2,7 +2,6 @@ import React from 'react'
 import { Container, Dropdown, Segment } from 'semantic-ui-react'
 
 const DropdownWidget = (props) => {
-
     return (
         <Container>
             <Dropdown
