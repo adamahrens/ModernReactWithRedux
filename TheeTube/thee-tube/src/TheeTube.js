@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap'
 import VideoDetail from './VideoDetail';
 import VideoList from './VideoList';
@@ -8,10 +8,16 @@ import Youtube from './Youtube';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TheeTube() {
+    const [search, setSearchTerm] = useState("");
+    const [shouldSearch, setShouldSearch] = useState(false)
     const [searchResults, setSearchResults] = useState([]);
     const [video, setVideo] = useState({})
 
-    const searchSubmitted = (search) => {
+    useEffect(() => {
+        if (shouldSearch === false || search.length === 0) {
+            return
+        }
+
         console.log(`App search submitted. Current search term is ${search}`)
         Youtube.get('/search', {
             params: {
@@ -28,8 +34,10 @@ function TheeTube() {
             })
             setSearchResults(results)
             setVideo(results[0])
+            setShouldSearch(false)
         });
-    }
+
+    }, [shouldSearch, search]);
 
     const selectVideo = (videoId) => {
         console.log(`Selected video ${videoId}`)
@@ -44,7 +52,7 @@ function TheeTube() {
         <div className="App">
             <Container>
                 <h1>TheeTube</h1>
-                <Searchbar onSearchSubmit={searchSubmitted} />
+                <Searchbar search={search} setSearch={setSearchTerm} shouldSearch={setShouldSearch} />
                 <Row>
                     <Col>
                         <VideoDetail video={video} />

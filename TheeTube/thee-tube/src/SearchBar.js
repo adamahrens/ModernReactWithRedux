@@ -3,19 +3,17 @@ import Button from 'react-bootstrap/Button';
 import { Row, Col } from "react-bootstrap";
 import Form from 'react-bootstrap/Form'
 
-const Searchbar = (props) => {
-
-    const [search, setSearchTerm] = useState("");
+const Searchbar = ({ search, setSearch, shouldSearch }) => {
 
     const searchSubmited = (event) => {
         event.preventDefault();
-        props.onSearchSubmit(search)
+        shouldSearch(true)
     };
 
     const searchUpdated = (event) => {
         event.preventDefault();
         console.log(`Search updated! ${event.target.value}`)
-        setSearchTerm(event.target.value)
+        setSearch(event.target.value)
     };
 
     return (
