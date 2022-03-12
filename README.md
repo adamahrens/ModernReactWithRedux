@@ -98,3 +98,71 @@ We can use these "primitive" hooks to build our own custom hooks.
 Events and Clicks can only be triggered or listened to by elements that a Component can create. What if you wanted to hear clicks from an element that another component has not created. For example a `Dropdown` component wants to listen to a click on the `body` tag.
 
 Event bubbling is when the Browser creates an event (say for a click on an item). It then keeps bubbling up to parent elements. If that parent has an event handler it can be executed. 
+
+# Redux
+
+A state management library (same state in class based components ). Removing state from components. Keep components just to display data.
+
+Redux is independent from React. The same concepts have been ported over to other programming languages.
+
+Redux Cycle
+
+Action Creator -> Action -> dispatch -> Reducers -> State
+
+Insurance Analogy 
+
+Person dropping off Form -> The Form(Type & Payload) -> Form Receiver -> Departments -> Company wide compiled data
+
+Reducers Process the Action and Decide how to update it's data. 
+
+```
+// Action Creator
+const createPolicy = (name, amount) => {
+  return {
+    type: 'CREATE_POLICY',
+    payload: {
+      name,
+      amount
+    }
+  }
+}
+
+const deletePolicy = (name) => {
+  return {
+    type: 'DELETE_POLICY',
+    payload: {
+      name
+    }
+  }
+}
+
+const createClaim = (name, amount) => {
+  return {
+    type: 'CREATE_CLAIM',
+    payload: {
+      name,
+      amount
+    }
+  }
+}
+
+// Reducers
+const claimHistory(previousClaims = [], action) => {
+  if (action.type === 'CREATE_CLAIM') {
+    // Add the new claim payload to the array
+    // Always avoid modifying existing data structure
+    // Make a copy and modify and return a new value
+    return [...previousClaims, action.payload]
+  } else {
+    return previousClaims
+  }
+}
+
+const store = createStore(ourReducers)
+const action = createClaim('Adam', 20)
+store.dispatch(action)
+
+store.getState()
+```
+
+https://codepen.io/sgrider/pres/oQjBvG
