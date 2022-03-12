@@ -166,3 +166,45 @@ store.getState()
 ```
 
 https://codepen.io/sgrider/pres/oQjBvG
+
+
+# Named vs Default Exports
+
+If you name a file in a folder `index.js` and just `import path/to/file` Webpack will automatically import the file.
+
+`Named` import means you have to specify the name of the functions you're using. `Default` means you export everything with `export default`. However, default only allows exporting one component per file.
+
+With default you can also name it whatever you want.
+
+```
+Named examples
+export const Hello = () => {  
+  return <h1>Hello</h1>;
+}  
+
+export const Goodbye = () => {
+  return <h2>Goodbye</h2>; 
+} 
+
+import { Hello, Goodbye } from "./Greetings"; 
+
+<Hello />
+<Goodbye />
+
+or 
+
+import * as Greetings from "./Greetings"; 
+<Greetings.Hello /> 
+
+```
+
+```
+Default examples 
+
+const fn1 = () => {} 
+const fn2 = () => {}  
+export default {  fn1, fn2 } 
+
+import Fns from "./functions";
+Fns.fn1();
+```
